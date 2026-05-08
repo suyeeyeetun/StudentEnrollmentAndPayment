@@ -1,0 +1,99 @@
+﻿@model StudentEnrollmentAndPayment.Database.AppDbContextModels.TblPersonalInformation
+
+<h2>Create Student Information</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label>Roll No.</label>
+        <input asp-for="RollNo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Full Name</label>
+        <input asp-for="FullName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>NRC</label>
+        <input asp-for="Nrc" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Date of Birth</label>
+        <input asp-for="Dob" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Gender</label>
+        <select asp-for="Gender" class="form-control">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Address</label>
+        <textarea asp-for="Address" class="form-control"></textarea>
+    </div>
+
+    <hr />
+
+    <h4>Parent Information</h4>
+
+    <div class="form-group">
+        <label>Father Name</label>
+        <input asp-for="FatherName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Father Phone</label>
+        <input asp-for="FatherPhoneNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Mother Name</label>
+        <input asp-for="MotherName" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Mother Phone</label>
+        <input asp-for="MotherPhoneNumber" class="form-control" />
+    </div>
+
+    <hr />
+
+    <h4>Other Information</h4>
+
+    <!-- ✅ IMAGE UPLOAD (IMPORTANT) -->
+    <div class="form-group">
+        <label>Profile Image</label>
+        <input type="file" name="ProfileFile" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Nationality</label>
+        <input asp-for="Nationality" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Religion</label>
+        <input asp-for="Religion" class="form-control" />
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+
+</form>

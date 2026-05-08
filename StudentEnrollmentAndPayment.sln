@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37203.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentEnrollmentAndPayment", "StudentEnrollmentAndPayment\StudentEnrollmentAndPayment.csproj", "{68782EA2-AE28-4EB6-A3FF-078068118B58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentEnrollmentAndPayment.Database", "StudentEnrollmentAndPayment.Database\StudentEnrollmentAndPayment.Database.csproj", "{E0961C74-7FF2-46B4-AC0C-29E0DA5F04FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68782EA2-AE28-4EB6-A3FF-078068118B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68782EA2-AE28-4EB6-A3FF-078068118B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68782EA2-AE28-4EB6-A3FF-078068118B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68782EA2-AE28-4EB6-A3FF-078068118B58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0961C74-7FF2-46B4-AC0C-29E0DA5F04FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0961C74-7FF2-46B4-AC0C-29E0DA5F04FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0961C74-7FF2-46B4-AC0C-29E0DA5F04FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0961C74-7FF2-46B4-AC0C-29E0DA5F04FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FAF9FAFA-C375-4C26-B5A4-6A7A3AB51FA5}
+	EndGlobalSection
+EndGlobal

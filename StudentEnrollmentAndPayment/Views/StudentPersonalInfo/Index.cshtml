@@ -1,0 +1,76 @@
+﻿@model IEnumerable<StudentEnrollmentAndPayment.Database.AppDbContextModels.TblPersonalInformation>
+
+<h2>Student List</h2>
+
+<a asp-action="Create" class="btn btn-primary">Add New</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Roll No.</th>
+            <th>Profile</th>
+            <th>Name</th>
+            <th>NRC</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RollNo</td>
+                <!-- PROFILE COLUMN -->
+                <td>
+                    <div class="text-center align-middle">
+                        @if (!string.IsNullOrEmpty(item.Profile))
+                        {
+                            <img src="@item.Profile"
+                                 width="65"
+                                 height="65"
+                                 style="border-radius:50%; object-fit:cover;" />
+                        }
+                    </div>
+                </td>
+
+                <!-- OTHER COLUMNS -->
+                <td>@item.FullName</td>
+
+                <td>@item.Nrc</td>
+
+                <td>@item.PhoneNumber</td>
+
+                <!-- ACTION COLUMN -->
+                <td style="width:120px;">
+
+                    <div style="display:flex; gap:10px;">
+
+                        <!-- EDIT -->
+                        <a asp-action="Edit"
+                           asp-route-id="@item.StudentId"
+                           class="btn btn-primary btn-sm"
+                           style="width:35px; height:35px; display:flex; align-items:center; justify-content:center;">
+
+                            <i class="fa fa-edit"></i>
+                        </a>
+
+                        <!-- DELETE -->
+                        <a asp-action="Delete"
+                           asp-route-id="@item.StudentId"
+                           class="btn btn-danger btn-sm"
+                           style="width:35px; height:35px; display:flex; align-items:center; justify-content:center;">
+
+                            <i class="fa fa-trash"></i>
+                        </a>
+
+                    </div>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
