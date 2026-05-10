@@ -57,13 +57,14 @@
                         </a>
 
                         <!-- DELETE -->
-                        <a asp-action="Delete"
-                           asp-route-id="@item.StudentId"
-                           class="btn btn-danger btn-sm"
-                           style="width:35px; height:35px; display:flex; align-items:center; justify-content:center;">
+                        <form asp-action="Delete" asp-route-id="@item.StudentId" method="post" style="display:inline;"
+                              onsubmit="return confirm('Are you sure you want to delete this student?');">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash"></i>
+                            </button>
 
-                            <i class="fa fa-trash"></i>
-                        </a>
+                        </form>
 
                     </div>
 
