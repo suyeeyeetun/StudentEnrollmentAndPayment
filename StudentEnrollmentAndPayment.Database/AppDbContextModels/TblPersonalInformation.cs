@@ -42,4 +42,8 @@ public partial class TblPersonalInformation
     public DateTime? ModifiedDateTime { get; set; }
 
     public bool? DeleteFlag { get; set; }
+
+    public int? MajorId { get; set; }
+
+    public int? AcademicYearId { get; set; }
 }

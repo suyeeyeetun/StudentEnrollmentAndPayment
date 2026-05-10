@@ -2,8 +2,38 @@
 
 <h2>Student List</h2>
 
-<a asp-action="Create" class="btn btn-primary">Add New</a>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <a asp-action="Create" class="btn btn-primary">Add New</a>
+    <form method="get" asp-action="Index">
 
+        <select name="majorId" class="form-control" style="width:200px; display:inline-block;">
+            <option value="">-- Select Major --</option>
+
+            @foreach (var m in ViewBag.Majors)
+            {
+                <option value="@m.MajorId"
+                        selected="@(ViewBag.SelectedMajor == m.MajorId)">
+                    @m.MajorName
+                </option>
+            }
+        </select>
+
+        <select name="yearId" class="form-control" style="width:200px; display:inline-block;">
+            <option value="">-- Select Year --</option>
+
+            @foreach (var y in ViewBag.Years)
+            {
+                <option value="@y.AcademicYearId"
+                        selected="@(ViewBag.SelectedYear == y.AcademicYearId)">
+                    @y.AcademicYear
+                </option>
+            }
+        </select>
+
+        <button type="submit" class="btn btn-primary">Filter</button>
+
+    </form>
+</div>
 <table class="table table-bordered">
     <thead>
         <tr>

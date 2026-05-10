@@ -15,6 +15,10 @@ public partial class AppDbContext : DbContext
     {
     }
 
+    public virtual DbSet<TblAcademicYear> TblAcademicYears { get; set; }
+
+    public virtual DbSet<TblMajor> TblMajors { get; set; }
+
     public virtual DbSet<TblPersonalInformation> TblPersonalInformations { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,6 +27,28 @@ public partial class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<TblAcademicYear>(entity =>
+        {
+            entity.HasKey(e => e.AcademicYearId);
+
+            entity.ToTable("Tbl_AcademicYear");
+
+            entity.Property(e => e.AcademicYear)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<TblMajor>(entity =>
+        {
+            entity.HasKey(e => e.MajorId);
+
+            entity.ToTable("Tbl_Major");
+
+            entity.Property(e => e.MajorName)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
         modelBuilder.Entity<TblPersonalInformation>(entity =>
         {
             entity.HasKey(e => e.StudentId);

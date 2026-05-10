@@ -8,6 +8,30 @@
         <label>Roll No.</label>
         <input asp-for="RollNo" class="form-control" />
     </div>
+
+    <div>
+        <label>Major</label>
+        <select name="MajorId" class="form-control">
+            <option value="">-- Select Major --</option>
+            @foreach (var m in ViewBag.Majors)
+            {
+                <option value="@m.MajorId">@m.MajorName</option>
+            }
+        </select>
+    </div>
+
+    <!-- Academic Year -->
+    <div>
+        <label>Academic Year</label>
+        <select name="AcademicYearId" class="form-control">
+            <option value="">-- Select Year --</option>
+            @foreach (var y in ViewBag.Years)
+            {
+                <option value="@y.AcademicYearId">@y.AcademicYear</option>
+            }
+        </select>
+    </div>
+
     <div class="form-group">
         <label>Full Name</label>
         <input asp-for="FullName" class="form-control" />

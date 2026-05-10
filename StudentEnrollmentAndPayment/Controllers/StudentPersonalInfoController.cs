@@ -14,22 +14,42 @@ public class StudentPersonalInfoController : Controller
     }
 
     // 🔹 INDEX
-    public IActionResult Index()
+    public IActionResult Index(int? majorId, int? yearId)
     {
-        var data = _context.TblPersonalInformations
-    .Where(x => x.DeleteFlag == false)
-    .AsNoTracking()
-    .ToList();
-        return View(data);
-    }
+        var students = _context.TblPersonalInformations
+            .Where(x => x.DeleteFlag == false)
+            .AsQueryable();
 
-    // 🔹 CREATE (GET)
+        // filter by Major
+        if (majorId.HasValue)
+        {
+            students = students.Where(x => x.MajorId == majorId);
+        }
+
+        // filter by Academic Year
+        if (yearId.HasValue)
+        {
+            students = students.Where(x => x.AcademicYearId == yearId);
+        }
+
+        ViewBag.Majors = _context.TblMajors.ToList();
+        ViewBag.Years = _context.TblAcademicYears.ToList();
+
+        ViewBag.SelectedMajor = majorId;
+        ViewBag.SelectedYear = yearId;
+
+        return View(students.AsNoTracking().ToList());
+    }
+    // CREATE (GET)
     public IActionResult Create()
     {
+        ViewBag.Majors = _context.TblMajors.ToList();
+        ViewBag.Years = _context.TblAcademicYears.ToList();
+
         return View("createStudentInfo");
     }
 
-    // 🔹 CREATE (POST WITH IMAGE)
+    // CREATE (POST WITH IMAGE)
     [HttpPost]
     public IActionResult Create(TblPersonalInformation student, IFormFile ProfileFile)
     {
@@ -74,7 +94,7 @@ public class StudentPersonalInfoController : Controller
         if (student == null)
             return NotFound();
 
-        // ✅ PATCH STYLE (only update what you want)
+        // PATCH
 
         student.FullName = updatedStudent.FullName;
         student.Nrc = updatedStudent.Nrc;
