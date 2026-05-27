@@ -94,6 +94,9 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.Nrc)
                 .HasMaxLength(50)
                 .HasColumnName("NRC");
+            entity.Property(e => e.Password)
+                .HasMaxLength(255)
+                .HasDefaultValue("123456");
             entity.Property(e => e.PhoneNumber)
                 .HasMaxLength(50)
                 .IsUnicode(false)

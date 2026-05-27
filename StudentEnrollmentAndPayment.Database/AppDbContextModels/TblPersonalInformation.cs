@@ -46,4 +46,6 @@ public partial class TblPersonalInformation
     public int? MajorId { get; set; }
 
     public int? AcademicYearId { get; set; }
+
+    public string Password { get; set; } = null!;
 }
